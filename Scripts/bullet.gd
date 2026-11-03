@@ -23,5 +23,7 @@ func _on_area_entered(area: Area2D) -> void:
 	if area.has_method("take_damage"):
 		area.take_damage(1)
 		var hit:Node2D= hit_fx.instantiate()
+		hit.global_position=Vector2(global_position.x,global_position.y)
+		get_tree().current_scene.add_child(hit)
 		queue_free()
 	pass # Replace with function body.

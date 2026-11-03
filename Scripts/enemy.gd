@@ -3,9 +3,10 @@ extends Area2D
 
 @export var speed: float  = 600.0
 @onready var flash_timer:Timer=$flashTimer
-@export var lp : int = 2
-@export var knockback_force: float=400
-@export var knockback_recovery: float =200
+@export var lp : int = 3
+@export var knockback_force: float=100
+@export var explosion_fx : PackedScene
+
 
 
 # Called when the node enters the scene tree for the first time.
@@ -22,11 +23,15 @@ func _physics_process(delta: float) -> void:
 
 func take_damage(amount:int)->void:
 	lp-=amount
+	position.y-=knockback_force
 	
 	$Sprite2D.modulate=Color(10,10,10)
 	flash_timer.start()
 	
 	if lp<=0:
+		var explosion:Node2D= explosion_fx.instantiate()
+		explosion.global_position=Vector2(global_position.x,global_position.y)
+		get_tree().current_scene.add_child(explosion)
 		queue_free()
 	pass
 

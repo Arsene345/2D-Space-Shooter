@@ -1,6 +1,6 @@
 extends Node2D
 @export var bullet_scene : PackedScene
-@export var time_between_shots : float = 0.5
+@export var time_between_shots : float = 0.2
 var cooldown: float = 0.0
 
 # Called when the node enters the scene tree for the first time.
