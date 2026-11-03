@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://dj4onxjx55pfm"]
+
+[ext_resource type="Script" uid="uid://q8lwqruew1vg" path="res://Scripts/bullet.gd" id="1_oduel"]
+[ext_resource type="PackedScene" path="res://Effects/hit_spark.tscn" id="2_odot3"]
+[ext_resource type="Texture2D" uid="uid://bpi7xwbogvkid" path="res://KennyAssets/SpaceShooterRedux/Lasers/laserBlue02.png" id="2_ycag2"]
+[ext_resource type="AudioStream" path="res://Effects/Sounds/sfx_laser.tres" id="3_6afsh"]
+[ext_resource type="PackedScene" path="res://Effects/muzzle_flash.tscn" id="4_6afsh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_splcb"]
+size = Vector2(13, 37)
+
+[node name="bullet" type="Area2D" unique_id=1544704376]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_oduel")
+hit_fx = ExtResource("2_odot3")
+
+[node name="LaserBlue02" type="Sprite2D" parent="." unique_id=1669342023]
+texture = ExtResource("2_ycag2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=409527441]
+shape = SubResource("RectangleShape2D_splcb")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=84368157]
+stream = ExtResource("3_6afsh")
+
+[node name="MuzzleFlash" parent="." unique_id=847721153 instance=ExtResource("4_6afsh")]
+position = Vector2(1, 1)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

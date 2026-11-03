@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dxiduvvvcf4m5"]
+
+[ext_resource type="Texture2D" uid="uid://dtnl7mrf7dbqe" path="res://KennyAssets/SpaceShooterRedux/Backgrounds/purple.png" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://dfmwg5erisofx" path="res://Scenes/enemy_spawner.tscn" id="1_8gbba"]
+[ext_resource type="Script" uid="uid://bjunuhsyanxoj" path="res://Scripts/player.gd" id="2_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://ctvxkerqdxsg0" path="res://Scenes/player.tscn" id="2_h2yge"]
+
+[node name="Node" type="Node" unique_id=1680532942]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=637702728]
+position = Vector2(364, 639)
+
+[node name="Node2D" parent="." unique_id=1059334822 instance=ExtResource("1_8gbba")]
+position = Vector2(359, 138)
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1846760973]
+position = Vector2(360, 640)
+scale = Vector2(2.7890625, 4.9843745)
+texture = ExtResource("1_0xm2m")
+
+[node name="player" parent="." unique_id=1945209659 instance=ExtResource("2_h2yge")]
+position = Vector2(362, 1170)
+script = ExtResource("2_1bvp3")

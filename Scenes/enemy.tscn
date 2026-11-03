@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bmebsoaa78f2c"]
+
+[ext_resource type="Script" uid="uid://cw1ual4ox2qbe" path="res://Scripts/enemy.gd" id="1_1f0kj"]
+[ext_resource type="Texture2D" uid="uid://83rrf3lelpyp" path="res://KennyAssets/SpaceShooterRedux/Enemies/enemyBlack1.png" id="1_hghv2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lysp3"]
+size = Vector2(92, 81)
+
+[node name="enemy" type="Area2D" unique_id=1377248563]
+collision_layer = 2
+script = ExtResource("1_1f0kj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=195572866]
+texture = ExtResource("1_hghv2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1320743057]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_lysp3")
+
+[node name="flashTimer" type="Timer" parent="." unique_id=1808447105]
+wait_time = 0.3
+one_shot = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="flashTimer" to="." method="_on_flash_timer_timeout"]

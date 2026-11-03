@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dfmwg5erisofx"]
+
+[ext_resource type="Script" uid="uid://dsnxa4c80vrxw" path="res://Scripts/enemy_spawner.gd" id="1_4l55s"]
+[ext_resource type="PackedScene" uid="uid://bmebsoaa78f2c" path="res://Scenes/enemy.tscn" id="2_8h7h8"]
+
+[node name="enemy" type="Node2D" unique_id=1059334822]
+script = ExtResource("1_4l55s")
+enemy_scene = ExtResource("2_8h7h8")
+
+[node name="Timer" type="Timer" parent="." unique_id=320289734]
+autostart = true
