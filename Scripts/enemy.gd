@@ -6,6 +6,7 @@ extends Area2D
 @export var lp : int = 3
 @export var knockback_force: float=100
 @export var explosion_fx : PackedScene
+@onready var enemy:Sprite2D=$Sprite2D
 
 
 
@@ -17,7 +18,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	position.y+=speed*delta
-	if position.y >1200.0 + $Sprite2D.texture.get_width():
+	if position.y >1200.0 + enemy.texture.get_width():
 		queue_free()
 	pass
 
@@ -25,13 +26,16 @@ func take_damage(amount:int)->void:
 	lp-=amount
 	position.y-=knockback_force
 	
-	$Sprite2D.modulate=Color(10,10,10)
+	enemy.modulate=Color(10,10,10)
 	flash_timer.start()
 	
 	if lp<=0:
 		var explosion:Node2D= explosion_fx.instantiate()
 		explosion.global_position=Vector2(global_position.x,global_position.y)
 		get_tree().current_scene.add_child(explosion)
+		
+		GameManager.add_score(5)
+		
 		queue_free()
 	pass
 
@@ -44,5 +48,5 @@ func _on_area_entered(area: Area2D) -> void:
 
 
 func _on_flash_timer_timeout() -> void:
-	$Sprite2D.modulate=Color.WHITE
+	enemy.modulate=Color.WHITE
 	pass # Replace with function body.

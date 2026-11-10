@@ -17,6 +17,9 @@ func _physics_process(delta: float) -> void:
 	position += Vector2.UP.rotated(rotation) * speed * delta
 	if (position.y <= -$LaserBlue02.texture.get_width() ):
 		queue_free()
+	
+
+	
 
 
 func _on_area_entered(area: Area2D) -> void:

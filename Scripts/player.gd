@@ -34,6 +34,7 @@ func read_direction() -> Vector2:
 
 func take_damage (amount:int)->void:
 	lp-=amount
+	GameManager.player_life_changed.emit(lp)
 	if (lp<=0):
-		get_tree().reload_current_scene.call_deferred()
+		GameManager.trigger_game_over()
 	pass

@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dfmwg5erisofx" path="res://Scenes/enemy_spawner.tscn" id="1_8gbba"]
 [ext_resource type="Script" uid="uid://bjunuhsyanxoj" path="res://Scripts/player.gd" id="2_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://ctvxkerqdxsg0" path="res://Scenes/player.tscn" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://bb830e54nxi8f" path="res://Scenes/hud.tscn" id="2_kry3j"]
 
 [node name="Node" type="Node" unique_id=1680532942]
 
@@ -13,8 +14,10 @@ position = Vector2(364, 639)
 [node name="Node2D" parent="." unique_id=1059334822 instance=ExtResource("1_8gbba")]
 position = Vector2(359, 138)
 
+[node name="HUD" parent="." unique_id=1170323552 instance=ExtResource("2_kry3j")]
+
 [node name="Background" type="Sprite2D" parent="." unique_id=1846760973]
-position = Vector2(360, 640)
+position = Vector2(357, 640.00006)
 scale = Vector2(2.7890625, 4.9843745)
 texture = ExtResource("1_0xm2m")
 
