@@ -2,13 +2,19 @@
 
 [ext_resource type="Texture2D" uid="uid://bp15nvo7hjehl" path="res://KennyAssets/SpaceShooterRedux/playerShip2_blue.png" id="1_4flbx"]
 [ext_resource type="PackedScene" uid="uid://cqfi1e1rmi1ss" path="res://Scenes/weapon.tscn" id="1_cvnsp"]
+[ext_resource type="Script" uid="uid://bjunuhsyanxoj" path="res://Scripts/player.gd" id="1_x3wgy"]
+[ext_resource type="PackedScene" path="res://Effects/explosion.tscn" id="2_3smsa"]
 [ext_resource type="PackedScene" uid="uid://dj4onxjx55pfm" path="res://Scenes/bullet.tscn" id="2_6t5aa"]
+[ext_resource type="AudioStream" uid="uid://bkr5j57irj1od" path="res://KennyAssets/SpaceShooterRedux/Bonus/Roblox Death Sound (Oof) - Sound Effect (HD).mp3" id="4_fkybt"]
+[ext_resource type="AudioStream" uid="uid://thv5iif720mq" path="res://KennyAssets/SpaceShooterRedux/Bonus/Lego yoda death sound.mp3" id="5_x3wgy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lysp3"]
 size = Vector2(115, 77)
 
 [node name="player" type="Area2D" unique_id=1945209659]
 collision_mask = 0
+script = ExtResource("1_x3wgy")
+explosion_scene = ExtResource("2_3smsa")
 
 [node name="weapon2" parent="." unique_id=1512242907 instance=ExtResource("1_cvnsp")]
 position = Vector2(53, -3)
@@ -24,3 +30,16 @@ texture = ExtResource("1_4flbx")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1630173612]
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_lysp3")
+
+[node name="degat" type="AudioStreamPlayer2D" parent="." unique_id=2013887697]
+process_mode = 3
+stream = ExtResource("4_fkybt")
+
+[node name="death" type="AudioStreamPlayer2D" parent="." unique_id=1075806392]
+process_mode = 3
+stream = ExtResource("5_x3wgy")
+
+[node name="invincibilité" type="Timer" parent="." unique_id=2111119989]
+one_shot = true
+
+[connection signal="timeout" from="invincibilité" to="." method="_on_invincibilité_timeout"]

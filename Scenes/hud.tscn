@@ -1,12 +1,11 @@
 [gd_scene format=3 uid="uid://bb830e54nxi8f"]
 
-[ext_resource type="FontFile" uid="uid://kebcj1dqllk2" path="res://KennyAssets/SpaceShooterRedux/Bonus/kenvector_future.ttf" id="1_e0onf"]
 [ext_resource type="Script" uid="uid://djvgjhj4s1ht2" path="res://Scripts/hud.gd" id="1_fccik"]
 [ext_resource type="Texture2D" uid="uid://ke4fw61ral4" path="res://KennyAssets/SpaceShooterRedux/UI/playerLife2_blue.png" id="3_bjfho"]
-[ext_resource type="FontFile" uid="uid://b3j7o4edhsp11" path="res://KennyAssets/SpaceShooterRedux/Bonus/kenvector_future_thin.ttf" id="4_6fbih"]
+[ext_resource type="FontFile" uid="uid://donb4f0ct4uf1" path="res://KennyAssets/SpaceShooterRedux/Bonus/Persona5MenuFontPrototype-Regular.ttf" id="4_6fbih"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_lysp3"]
-font = ExtResource("1_e0onf")
+font = ExtResource("4_6fbih")
 font_size = 38
 
 [sub_resource type="LabelSettings" id="LabelSettings_splcb"]
@@ -24,8 +23,10 @@ scale = Vector2(17.993996, 33.418774)
 color = Color(1, 0, 0, 0)
 
 [node name="Label" type="Label" parent="." unique_id=952856700]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 13.0
+offset_top = 18.0
+offset_right = 408.0
+offset_bottom = 57.0
 text = "SCORE : 000000"
 label_settings = SubResource("LabelSettings_lysp3")
 
@@ -66,14 +67,19 @@ color = Color(0, 0, 0, 0.3647059)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=1932563138]
 layout_mode = 0
-offset_left = 121.0
-offset_right = 429.0
-offset_bottom = 128.0
+offset_left = -66.0
+offset_top = 13.0
+offset_right = 606.0
+offset_bottom = 191.0
 
 [node name="Label" type="Label" parent="Control/VBoxContainer" unique_id=1362313209]
 layout_mode = 2
-text = "Game Over"
+text = "Game Over
+
+
+"
 label_settings = SubResource("LabelSettings_splcb")
+horizontal_alignment = 1
 
 [node name="restart" type="Button" parent="Control/VBoxContainer" unique_id=806050755]
 layout_mode = 2
@@ -81,7 +87,25 @@ text = "Restart"
 
 [node name="quit" type="Button" parent="Control/VBoxContainer" unique_id=237515750]
 layout_mode = 2
-text = "quit"
+text = "quit
+
+
+
+
+
+"
+
+[node name="Label2" type="Label" parent="Control/VBoxContainer" unique_id=1840756424]
+layout_mode = 2
+text = "
+
+
+
+
+
+
+Tips : Deviens meilleur"
+label_settings = SubResource("LabelSettings_splcb")
 
 [connection signal="pressed" from="Control/VBoxContainer/restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/quit" to="." method="_on_quit_pressed"]

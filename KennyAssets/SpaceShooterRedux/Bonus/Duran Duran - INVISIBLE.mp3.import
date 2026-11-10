@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dw8wakd7qt22o"
+path="res://.godot/imported/Duran Duran - INVISIBLE.mp3-098e4c4c72dedd817628e59ecd51aa66.mp3str"
+
+[deps]
+
+source_file="res://KennyAssets/SpaceShooterRedux/Bonus/Duran Duran - INVISIBLE.mp3"
+dest_files=["res://.godot/imported/Duran Duran - INVISIBLE.mp3-098e4c4c72dedd817628e59ecd51aa66.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

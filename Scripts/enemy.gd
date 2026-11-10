@@ -7,6 +7,8 @@ extends Area2D
 @export var knockback_force: float=100
 @export var explosion_fx : PackedScene
 @onready var enemy:Sprite2D=$Sprite2D
+@onready var cam: Camera2D=$"../Camera2D"
+
 
 
 
@@ -28,13 +30,16 @@ func take_damage(amount:int)->void:
 	
 	enemy.modulate=Color(10,10,10)
 	flash_timer.start()
+	GameManager.add_score(5)
+
 	
 	if lp<=0:
 		var explosion:Node2D= explosion_fx.instantiate()
 		explosion.global_position=Vector2(global_position.x,global_position.y)
 		get_tree().current_scene.add_child(explosion)
-		
-		GameManager.add_score(5)
+		cam.add_trauma(0.1)
+		GameManager.hitstop(0.1)
+		GameManager.add_score(10)
 		
 		queue_free()
 	pass

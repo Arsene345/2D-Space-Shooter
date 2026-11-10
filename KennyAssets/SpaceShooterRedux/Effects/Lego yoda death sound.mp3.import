@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bi4e4g8tpckcd"
+path="res://.godot/imported/Lego yoda death sound.mp3-bab9eadb6b1f9a6ece63d35b51f086c0.mp3str"
+
+[deps]
+
+source_file="res://KennyAssets/SpaceShooterRedux/Effects/Lego yoda death sound.mp3"
+dest_files=["res://.godot/imported/Lego yoda death sound.mp3-bab9eadb6b1f9a6ece63d35b51f086c0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

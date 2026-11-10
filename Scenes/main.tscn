@@ -2,14 +2,20 @@
 
 [ext_resource type="Texture2D" uid="uid://dtnl7mrf7dbqe" path="res://KennyAssets/SpaceShooterRedux/Backgrounds/purple.png" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://dfmwg5erisofx" path="res://Scenes/enemy_spawner.tscn" id="1_8gbba"]
-[ext_resource type="Script" uid="uid://bjunuhsyanxoj" path="res://Scripts/player.gd" id="2_1bvp3"]
+[ext_resource type="Script" uid="uid://yivkc7mri8tr" path="res://Scripts/camera_2d.gd" id="1_21xkr"]
 [ext_resource type="PackedScene" uid="uid://ctvxkerqdxsg0" path="res://Scenes/player.tscn" id="2_h2yge"]
 [ext_resource type="PackedScene" uid="uid://bb830e54nxi8f" path="res://Scenes/hud.tscn" id="2_kry3j"]
+[ext_resource type="AudioStream" uid="uid://dw8wakd7qt22o" path="res://KennyAssets/SpaceShooterRedux/Bonus/Duran Duran - INVISIBLE.mp3" id="6_21xkr"]
 
 [node name="Node" type="Node" unique_id=1680532942]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=637702728]
-position = Vector2(364, 639)
+process_mode = 3
+position = Vector2(355, 636)
+scale = Vector2(0.7216969, 0.78451616)
+skew = 1.1588986
+ignore_rotation = false
+script = ExtResource("1_21xkr")
 
 [node name="Node2D" parent="." unique_id=1059334822 instance=ExtResource("1_8gbba")]
 position = Vector2(359, 138)
@@ -17,10 +23,13 @@ position = Vector2(359, 138)
 [node name="HUD" parent="." unique_id=1170323552 instance=ExtResource("2_kry3j")]
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1846760973]
-position = Vector2(357, 640.00006)
-scale = Vector2(2.7890625, 4.9843745)
+position = Vector2(355, 638.00006)
+scale = Vector2(2.919251, 5.1558294)
 texture = ExtResource("1_0xm2m")
 
 [node name="player" parent="." unique_id=1945209659 instance=ExtResource("2_h2yge")]
-position = Vector2(362, 1170)
-script = ExtResource("2_1bvp3")
+position = Vector2(356, 1201)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1766629525]
+stream = ExtResource("6_21xkr")
+autoplay = true
