@@ -1,21 +1,23 @@
 class_name  Bullet
 extends Area2D
 
+@onready var bullet_sound:AudioStreamPlayer2D=$AudioStreamPlayer2D
+@onready var laser:Sprite2D=$LaserBlue02
 @export var speed: float = 2000.0
 @export var hit_fx : PackedScene
 @export_range(0,PI,PI/100) var rotation_range : float= 3*PI/180
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$AudioStreamPlayer2D.pitch_scale=randf_range(0.5,3.0)
-	$AudioStreamPlayer2D.play()
+	bullet_sound.pitch_scale=randf_range(0.5,3.0)
+	bullet_sound.play()
 	rotation = randf_range(-rotation_range,rotation_range)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	#position.y-=speed*delta
 	position += Vector2.UP.rotated(rotation) * speed * delta
-	if (position.y <= -$LaserBlue02.texture.get_width() ):
+	if (position.y <= -laser.texture.get_width() ):
 		queue_free()
 	
 
